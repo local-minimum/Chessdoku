@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://d80gqqrylf1b"]
+
+[ext_resource type="PackedScene" uid="uid://btd85ym44m1sv" path="res://draggable.tscn" id="1_v0wd7"]
+[ext_resource type="PackedScene" uid="uid://bk23b72som6gi" path="res://drop_area.tscn" id="2_x72g4"]
+
+[node name="drag_and_drop" type="Node2D"]
+
+[node name="draggable" parent="." instance=ExtResource("1_v0wd7")]
+position = Vector2(558, 268)
+
+[node name="DropArea" parent="." instance=ExtResource("2_x72g4")]
+position = Vector2(168, 148)
+
+[node name="DropArea2" parent="." instance=ExtResource("2_x72g4")]
+position = Vector2(222, 482)
+
+[node name="DropArea3" parent="." instance=ExtResource("2_x72g4")]
+position = Vector2(866, 524)
+
+[node name="DropArea4" parent="." instance=ExtResource("2_x72g4")]
+position = Vector2(971, 134)
+
+[node name="DropArea5" parent="DropArea4" instance=ExtResource("2_x72g4")]
+position = Vector2(-38.9999, -40)
+scale = Vector2(0.324752, 0.324752)
+
+[node name="DropArea6" parent="DropArea4" instance=ExtResource("2_x72g4")]
+position = Vector2(38.9999, -41)
+scale = Vector2(0.324752, 0.324752)
