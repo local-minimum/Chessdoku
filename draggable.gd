@@ -55,7 +55,7 @@ func _on_area_2d_mouse_exited():
 	if draggable && not dragging:
 		print("Mouse exited")
 		draggable = false
-		scale = Vector2(1, 1)
+		scale = Vector2.ONE
 
 
 func _on_area_2d_body_entered(body: StaticBody2D):
