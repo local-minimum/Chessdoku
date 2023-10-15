@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+@export var overlay: ColorRect
 var _occupier: Node2D
 var hover_color = Color(Color.MEDIUM_ORCHID, 0.7)
 var default_color = Color(Color.SANDY_BROWN, 0.2)
@@ -29,6 +30,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if global.is_dragging:
-		visible = true
+		overlay.visible = true
 	else:
-		visible = false
+		overlay.visible = false

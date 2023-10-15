@@ -3,13 +3,22 @@ extends StaticBody2D
 @export var copies: int = 11
 @export var label: Label
 @export var template: PackedScene
+@export var pieceType: global.PIECE
+@export var tex: Texture2D
+@export var isBlack: bool
 
 var hovered = false
 var mouse_enter_scale = 1.05
 var tween_duration = 0.2
+var img: Sprite2D
+var start_scale: Vector2
 
 func _ready():
+	start_scale = scale
 	_sync_label()
+	img = get_node("TemplateImage")	
+	img.texture = tex
+	#img.color = global.black_color if isBlack else global.white_color
 
 func _sync_label():
 	label.text = str(copies)
@@ -27,13 +36,13 @@ func _process(_delta):
 			get_tree().root.add_child(piece)
 			piece.set_origin(self)
 			piece.global_position = global_position
+			piece.configure(img.texture, pieceType)
 			piece.start_drag()
 			
 func _on_area_2d_mouse_entered():
 	if copies > 0 and (not global.is_dragging or global.dragged.is_origin(self)):
 		hovered = true
-		scale = Vector2(mouse_enter_scale, mouse_enter_scale)
-
+		scale = start_scale * mouse_enter_scale
 
 func _on_area_2d_mouse_exited():
 	if (hovered):
@@ -45,7 +54,7 @@ func _disabled():
 	
 func _unhovered():
 	hovered = false
-	scale = Vector2.ONE
+	scale = start_scale
 	_sync_label()
 
 func reclaim(piece: Node2D):

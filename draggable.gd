@@ -9,6 +9,7 @@ var colliding_ref: StaticBody2D
 var tween_duration = 0.2
 var drag_offset: Vector2
 
+var _piece: global.PIECE
 
 func _ready():
 	pass
@@ -89,3 +90,7 @@ func is_origin(body: StaticBody2D):
 func recycle():
 	if origin_ref != null:
 		origin_ref.reclaim(self)
+		
+func configure(tex: Texture2D, piece: global.PIECE):
+	get_node("Sprite").texture = tex
+	_piece = piece

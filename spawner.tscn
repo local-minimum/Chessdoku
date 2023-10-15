@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://d05x2ayl6s3ko"]
 
 [ext_resource type="Script" path="res://spawner.gd" id="1_46u63"]
-[ext_resource type="Texture2D" uid="uid://1kkfx3kp7x72" path="res://icon.svg" id="1_jg8eg"]
 [ext_resource type="PackedScene" uid="uid://btd85ym44m1sv" path="res://piece.tscn" id="2_gkoir"]
+[ext_resource type="Texture2D" uid="uid://csen3s1lxy347" path="res://Images/tower.png" id="3_ayngn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nl458"]
 size = Vector2(135, 134)
@@ -20,16 +20,19 @@ script = ExtResource("1_46u63")
 copies = 9
 label = NodePath("Label")
 template = ExtResource("2_gkoir")
+pieceType = 1
+tex = ExtResource("3_ayngn")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_nl458")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="TemplateImage" type="Sprite2D" parent="."]
 z_index = -1
 texture_repeat = 1
-texture = ExtResource("1_jg8eg")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ayngn")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -64.0
