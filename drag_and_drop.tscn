@@ -1,14 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d80gqqrylf1b"]
+[gd_scene load_steps=3 format=3 uid="uid://d80gqqrylf1b"]
 
-[ext_resource type="PackedScene" uid="uid://btd85ym44m1sv" path="res://piece.tscn" id="1_v0wd7"]
 [ext_resource type="PackedScene" uid="uid://bk23b72som6gi" path="res://drop_area.tscn" id="2_x72g4"]
 [ext_resource type="PackedScene" uid="uid://d05x2ayl6s3ko" path="res://spawner.tscn" id="3_bejti"]
 
 [node name="drag_and_drop" type="Node2D"]
-
-[node name="draggable" parent="." instance=ExtResource("1_v0wd7")]
-visible = false
-position = Vector2(558, 268)
 
 [node name="DropArea" parent="." instance=ExtResource("2_x72g4")]
 position = Vector2(168, 148)
@@ -20,6 +15,7 @@ position = Vector2(222, 482)
 position = Vector2(866, 524)
 
 [node name="DropArea4" parent="." instance=ExtResource("2_x72g4")]
+visible = false
 position = Vector2(971, 134)
 
 [node name="DropArea5" parent="DropArea4" instance=ExtResource("2_x72g4")]
