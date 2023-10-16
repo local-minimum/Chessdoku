@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d80gqqrylf1b"]
+[gd_scene load_steps=9 format=3 uid="uid://d80gqqrylf1b"]
 
 [ext_resource type="PackedScene" uid="uid://bk23b72som6gi" path="res://drop_area.tscn" id="1_l4ssu"]
 [ext_resource type="PackedScene" uid="uid://d05x2ayl6s3ko" path="res://spawner.tscn" id="2_r5u6o"]
 [ext_resource type="Texture2D" uid="uid://dq0svg10xm7vk" path="res://Images/pawn.png" id="3_ayu0b"]
+[ext_resource type="Texture2D" uid="uid://csen3s1lxy347" path="res://Images/tower.png" id="3_g8q3p"]
 [ext_resource type="Texture2D" uid="uid://yoxu2yphshgk" path="res://Images/horse.png" id="4_l0bjy"]
 [ext_resource type="Texture2D" uid="uid://csigvar8bbbis" path="res://Images/bishop.png" id="5_bxury"]
 [ext_resource type="Texture2D" uid="uid://1skqwc2yyyyf" path="res://Images/queen.png" id="6_d0g7o"]
@@ -10,114 +11,144 @@
 
 [node name="drag_and_drop" type="Node2D"]
 
-[node name="DropArea" parent="." instance=ExtResource("1_l4ssu")]
-position = Vector2(168, 148)
-
-[node name="DropArea2" parent="." instance=ExtResource("1_l4ssu")]
-position = Vector2(166, 421)
-
-[node name="DropArea3" parent="." instance=ExtResource("1_l4ssu")]
-position = Vector2(167, 285)
-
 [node name="White Spawners" type="Node2D" parent="."]
 position = Vector2(-79, 0)
 
 [node name="Pawn Spawner" parent="White Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 44)
 scale = Vector2(0.5, 0.5)
-copies = 12
 pieceType = 0
 tex = ExtResource("3_ayu0b")
 
-[node name="Rook Spawner" parent="White Spawners" node_paths=PackedStringArray("label") instance=ExtResource("2_r5u6o")]
+[node name="Rook Spawner" parent="White Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 115)
 scale = Vector2(0.5, 0.5)
-copies = 12
-label = NodePath("../Pawn Spawner/Label")
+tex = ExtResource("3_g8q3p")
 
-[node name="Knight Spawner" parent="White Spawners" node_paths=PackedStringArray("label") instance=ExtResource("2_r5u6o")]
+[node name="Knight Spawner" parent="White Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 188)
 scale = Vector2(0.5, 0.5)
-copies = 12
-label = NodePath("../Pawn Spawner/Label")
 pieceType = 2
 tex = ExtResource("4_l0bjy")
 
-[node name="Bishop Spawner" parent="White Spawners" node_paths=PackedStringArray("label") instance=ExtResource("2_r5u6o")]
+[node name="Bishop Spawner" parent="White Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 261)
 scale = Vector2(0.5, 0.5)
-copies = 12
-label = NodePath("../Pawn Spawner/Label")
 pieceType = 3
 tex = ExtResource("5_bxury")
 
-[node name="Queen Spawner" parent="White Spawners" node_paths=PackedStringArray("label") instance=ExtResource("2_r5u6o")]
+[node name="Queen Spawner" parent="White Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 332)
 scale = Vector2(0.5, 0.5)
-copies = 12
-label = NodePath("../Pawn Spawner/Label")
 pieceType = 4
 tex = ExtResource("6_d0g7o")
 
-[node name="King Spawner" parent="White Spawners" node_paths=PackedStringArray("label") instance=ExtResource("2_r5u6o")]
+[node name="King Spawner" parent="White Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 405)
 scale = Vector2(0.5, 0.5)
-copies = 12
-label = NodePath("../Pawn Spawner/Label")
 pieceType = 5
 tex = ExtResource("7_xjwvd")
 
 [node name="Black Spawners" type="Node2D" parent="."]
 position = Vector2(-8, 0)
 
-[node name="Pawn Spawner" parent="Black Spawners" node_paths=PackedStringArray("label") instance=ExtResource("2_r5u6o")]
+[node name="Pawn Spawner" parent="Black Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 44)
 scale = Vector2(0.5, 0.5)
-copies = 12
-label = NodePath("../../White Spawners/Pawn Spawner/Label")
 pieceType = 0
-tex = ExtResource("3_ayu0b")
 isBlack = true
+tex = ExtResource("3_ayu0b")
 
-[node name="Rook Spawner" parent="Black Spawners" node_paths=PackedStringArray("label") instance=ExtResource("2_r5u6o")]
+[node name="Rook Spawner" parent="Black Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 115)
 scale = Vector2(0.5, 0.5)
-copies = 12
-label = NodePath("../../White Spawners/Pawn Spawner/Label")
 isBlack = true
+tex = ExtResource("3_g8q3p")
 
-[node name="Knight Spawner" parent="Black Spawners" node_paths=PackedStringArray("label") instance=ExtResource("2_r5u6o")]
+[node name="Knight Spawner" parent="Black Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 188)
 scale = Vector2(0.5, 0.5)
-copies = 12
-label = NodePath("../../White Spawners/Pawn Spawner/Label")
 pieceType = 2
-tex = ExtResource("4_l0bjy")
 isBlack = true
+tex = ExtResource("4_l0bjy")
 
-[node name="Bishop Spawner" parent="Black Spawners" node_paths=PackedStringArray("label") instance=ExtResource("2_r5u6o")]
+[node name="Bishop Spawner" parent="Black Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 261)
 scale = Vector2(0.5, 0.5)
-copies = 12
-label = NodePath("../../White Spawners/Pawn Spawner/Label")
 pieceType = 3
-tex = ExtResource("5_bxury")
 isBlack = true
+tex = ExtResource("5_bxury")
 
-[node name="Queen Spawner" parent="Black Spawners" node_paths=PackedStringArray("label") instance=ExtResource("2_r5u6o")]
+[node name="Queen Spawner" parent="Black Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 332)
 scale = Vector2(0.5, 0.5)
-copies = 12
-label = NodePath("../../White Spawners/Pawn Spawner/Label")
 pieceType = 4
-tex = ExtResource("6_d0g7o")
 isBlack = true
+tex = ExtResource("6_d0g7o")
 
-[node name="King Spawner" parent="Black Spawners" node_paths=PackedStringArray("label") instance=ExtResource("2_r5u6o")]
+[node name="King Spawner" parent="Black Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 405)
 scale = Vector2(0.5, 0.5)
-copies = 12
-label = NodePath("../../White Spawners/Pawn Spawner/Label")
 pieceType = 5
-tex = ExtResource("7_xjwvd")
 isBlack = true
+tex = ExtResource("7_xjwvd")
+
+[node name="Box 1" type="Node2D" parent="."]
+position = Vector2(-25, -21)
+scale = Vector2(0.4, 0.4)
+
+[node name="Tile 1_1" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(168, 148)
+
+[node name="Tile 1_2" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(168, 282)
+isBlackTile = true
+
+[node name="Tile 1_3" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(168, 415)
+
+[node name="Tile 1_4" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(168, 549)
+isBlackTile = true
+
+[node name="Tile 2_1" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(307, 149)
+isBlackTile = true
+
+[node name="Tile 2_2" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(307, 283)
+
+[node name="Tile 2_3" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(307, 416)
+isBlackTile = true
+
+[node name="Tile 2_4" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(307, 550)
+
+[node name="Tile 3_1" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(446, 148)
+
+[node name="Tile 3_2" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(446, 282)
+isBlackTile = true
+
+[node name="Tile 3_3" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(446, 415)
+
+[node name="Tile 3_4" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(446, 549)
+isBlackTile = true
+
+[node name="Tile 4_1" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(586, 148)
+isBlackTile = true
+
+[node name="Tile 4_2" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(586, 282)
+
+[node name="Tile 4_3" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(586, 415)
+isBlackTile = true
+
+[node name="Tile 4_4" parent="Box 1" instance=ExtResource("1_l4ssu")]
+position = Vector2(586, 549)

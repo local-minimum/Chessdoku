@@ -14,14 +14,11 @@ outline_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.952941)
 
-[node name="Spawner" type="StaticBody2D" node_paths=PackedStringArray("label")]
+[node name="Spawner" type="StaticBody2D"]
 z_index = 10
 script = ExtResource("1_46u63")
-copies = 9
-label = NodePath("Label")
 template = ExtResource("2_gkoir")
 pieceType = 1
-tex = ExtResource("3_ayngn")
 
 [node name="Area2D" type="Area2D" parent="."]
 

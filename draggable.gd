@@ -10,9 +10,11 @@ var tween_duration = 0.2
 var drag_offset: Vector2
 
 var _piece: global.PIECE
+var _black: bool
+var _startScale: Vector2
 
 func _ready():
-	pass
+	_startScale = scale
 
 func start_drag():
 	drag_offset = global_position - get_global_mouse_position()
@@ -57,13 +59,13 @@ func _process(_delta):
 func _on_area_2d_mouse_entered():
 	if not global.is_dragging && not Input.is_action_pressed("click"):
 		draggable = true
-		scale = Vector2(mouse_enter_scale, mouse_enter_scale)
+		scale = mouse_enter_scale * _startScale
 
 func _on_area_2d_mouse_exited():
 	if draggable && not dragging:
 		print("Mouse exited")
 		draggable = false
-		scale = Vector2.ONE
+		scale = _startScale
 
 
 func _on_area_2d_body_entered(body: StaticBody2D):
@@ -83,7 +85,6 @@ func _on_area_2d_body_exited(body):
 func set_origin(body: StaticBody2D):
 	origin_ref = body
 
-
 func is_origin(body: StaticBody2D):
 	return body == origin_ref
 	
@@ -91,6 +92,10 @@ func recycle():
 	if origin_ref != null:
 		origin_ref.reclaim(self)
 		
-func configure(tex: Texture2D, piece: global.PIECE):
-	get_node("Sprite").texture = tex
+func configure(tex: Texture2D, piece: global.PIECE, isBlack: bool):
+	var sprite = get_node("Sprite")
+	sprite.texture = tex
+	sprite.modulate = global.black_color if isBlack else global.white_color
 	_piece = piece
+	_black = isBlack
+	

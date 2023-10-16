@@ -5,9 +5,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rb58e"]
 
-[node name="DropArea" type="StaticBody2D" node_paths=PackedStringArray("overlay") groups=["droppable"]]
+[node name="DropArea" type="StaticBody2D" groups=["droppable"]]
 script = ExtResource("1_h8cm4")
-overlay = NodePath("ColorRect")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6.56, 6.48)
@@ -18,7 +17,9 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_oxmds")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -64.0
 offset_top = -64.0
 offset_right = 64.0
 offset_bottom = 64.0
+color = Color(0.168627, 0.168627, 0.168627, 0.27451)

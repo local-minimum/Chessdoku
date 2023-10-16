@@ -8,6 +8,7 @@ size = Vector2(136, 134)
 
 [node name="Piece" type="Node2D"]
 z_index = 100
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_qxkq5")
 
 [node name="Sprite" type="Sprite2D" parent="."]

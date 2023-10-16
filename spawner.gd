@@ -1,46 +1,47 @@
 extends StaticBody2D
 
-@export var copies: int = 11
-@export var label: Label
 @export var template: PackedScene
 @export var pieceType: global.PIECE
-@export var tex: Texture2D
 @export var isBlack: bool
+@export var tex: Texture2D
 
+var label: Label
 var hovered = false
 var mouse_enter_scale = 1.05
 var tween_duration = 0.2
 var img: Sprite2D
 var start_scale: Vector2
+var _copies: int = 12
 
-func _ready():
+func _ready():		
 	start_scale = scale
-	_sync_label()
+	label = get_node("Label")
 	img = get_node("TemplateImage")	
 	img.texture = tex
-	#img.color = global.black_color if isBlack else global.white_color
+	img.modulate = global.black_color if isBlack else global.white_color
+	_sync_label()
 
 func _sync_label():
-	label.text = str(copies)
+	label.text = str(_copies)
 
 func _process(_delta):
 	if hovered:
 		if Input.is_action_just_pressed("click"):
 			
-			copies -= 1
+			_copies -= 1
 			_sync_label()
-			if copies < 1:
+			if _copies < 1:
 				_disabled();
 			
 			var piece = template.instantiate()
 			get_tree().root.add_child(piece)
 			piece.set_origin(self)
 			piece.global_position = global_position
-			piece.configure(img.texture, pieceType)
+			piece.configure(img.texture, pieceType, isBlack)
 			piece.start_drag()
 			
 func _on_area_2d_mouse_entered():
-	if copies > 0 and (not global.is_dragging or global.dragged.is_origin(self)):
+	if _copies > 0 and (not global.is_dragging or global.dragged.is_origin(self)):
 		hovered = true
 		scale = start_scale * mouse_enter_scale
 
@@ -49,17 +50,17 @@ func _on_area_2d_mouse_exited():
 		_unhovered();
 		
 func _disabled():
-	copies = 0
+	_copies = 0
 	_unhovered()
+	_sync_label()
 	
 func _unhovered():
 	hovered = false
-	scale = start_scale
-	_sync_label()
+	scale = start_scale	
 
 func reclaim(piece: Node2D):
-	copies += 1
-	if copies > 0:
+	_copies += 1
+	if _copies > 0:
 		_sync_label()
 		
 	var tween = get_tree().create_tween()
