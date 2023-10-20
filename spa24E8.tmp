@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://d05x2ayl6s3ko"]
+
+[ext_resource type="Script" path="res://spawner.gd" id="1_46u63"]
+[ext_resource type="PackedScene" uid="uid://btd85ym44m1sv" path="res://piece.tscn" id="2_gkoir"]
+[ext_resource type="Texture2D" uid="uid://csen3s1lxy347" path="res://Images/tower.png" id="3_ayngn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl458"]
+size = Vector2(135, 134)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3roql"]
+font_size = 38
+outline_size = 5
+outline_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.952941)
+
+[node name="Spawner" type="StaticBody2D"]
+z_index = 10
+script = ExtResource("1_46u63")
+template = ExtResource("2_gkoir")
+pieceType = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nl458")
+
+[node name="TemplateImage" type="Sprite2D" parent="."]
+z_index = -1
+texture_repeat = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ayngn")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -64.0
+offset_top = 7.0
+offset_right = -6.0
+offset_bottom = 63.0
+text = "12"
+label_settings = SubResource("LabelSettings_3roql")
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

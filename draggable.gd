@@ -5,13 +5,24 @@ var draggable = false
 var dragging = false
 var owner_ref: StaticBody2D
 var origin_ref: StaticBody2D
-var colliding_ref: StaticBody2D
 var tween_duration = 0.2
 var drag_offset: Vector2
 
 var _piece: global.PIECE
 var _black: bool
 var _startScale: Vector2
+var _colliding_refs: Array = []
+var _prev_colliding_ref: StaticBody2D
+
+func _distance_to_self(a: StaticBody2D, b: StaticBody2D):
+	return (global_position - a.global_position).length_squared() < (global_position - b.global_position).length_squared()
+	
+var colliding_ref: StaticBody2D:
+	get:
+		if _colliding_refs.size() == 0:
+			return null
+		_colliding_refs.sort_custom(_distance_to_self)
+		return _colliding_refs[0]
 
 func _ready():
 	_startScale = scale
@@ -23,24 +34,25 @@ func start_drag():
 	
 func end_drag():
 	global.clear_dragged(self)
+	var col = colliding_ref
 	
-	if colliding_ref != null:
-		colliding_ref.occupy(self)
+	if col != null:
+		col.occupy(self)
 		if owner_ref != null:
 			owner_ref.end_occupation(self)
-		owner_ref = colliding_ref
+		owner_ref = col
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "global_position", colliding_ref.global_position, tween_duration).set_ease(Tween.EASE_OUT)
+		tween.tween_property(self, "global_position", col.global_position, tween_duration).set_ease(Tween.EASE_OUT)
 	elif owner_ref != null:
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "global_position", owner_ref.global_position, tween_duration).set_ease(Tween.EASE_OUT)
 	elif origin_ref != null:
 		origin_ref.reclaim(self)
 		
-	if colliding_ref != null:
-		colliding_ref.end_hover()
+	if col != null:
+		col.end_hover()
 		
-	colliding_ref = null
+	_colliding_refs.clear()
 	dragging = false
 			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,6 +67,15 @@ func _process(_delta):
 			
 		elif Input.is_action_just_released("click"):
 			end_drag()
+	
+	var col = colliding_ref
+	if (_prev_colliding_ref != col):
+		if (_prev_colliding_ref != null):
+			_prev_colliding_ref.end_hover()
+		_prev_colliding_ref = col
+		if col != null:
+			col.begin_hover()
+	
 
 func _on_area_2d_mouse_entered():
 	if not global.is_dragging && not Input.is_action_pressed("click"):
@@ -69,17 +90,17 @@ func _on_area_2d_mouse_exited():
 
 
 func _on_area_2d_body_entered(body: StaticBody2D):
-	if body.is_in_group("droppable") and body.can_occupy(self):		
-		body.begin_hover()
-		if (colliding_ref != null):
-			colliding_ref.end_hover()
-		colliding_ref = body
+	if dragging and body.is_in_group("droppable") and body.can_occupy(self):	
+		_colliding_refs.append(body)	
 
 
 func _on_area_2d_body_exited(body):
-	if body == colliding_ref:
-		colliding_ref = null
+	if not dragging:
+		return
+		
+	if (colliding_ref == body):
 		body.end_hover()
+	_colliding_refs.erase(body)
 
 
 func set_origin(body: StaticBody2D):
