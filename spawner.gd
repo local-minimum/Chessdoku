@@ -2,7 +2,7 @@ extends StaticBody2D
 
 @export var template: PackedScene
 @export var pieceType: global.PIECE
-@export var isBlack: bool
+@export var pieceColor: global.PIECE_COLOR
 @export var tex: Texture2D
 
 var label: Label
@@ -18,7 +18,7 @@ func _ready():
 	label = get_node("Label")
 	img = get_node("TemplateImage")	
 	img.texture = tex
-	img.modulate = global.black_color if isBlack else global.white_color
+	img.modulate = global.black_color if pieceColor == global.PIECE_COLOR.BLACK else global.white_color
 	_sync_label()
 
 func _sync_label():
@@ -37,7 +37,7 @@ func _process(_delta):
 			get_tree().root.add_child(piece)
 			piece.set_origin(self)
 			piece.global_position = global_position
-			piece.configure(img.texture, pieceType, isBlack)
+			piece.configure(img.texture, pieceType, pieceColor)
 			piece.start_drag()
 			
 func _on_area_2d_mouse_entered():

@@ -8,8 +8,7 @@ var origin_ref: StaticBody2D
 var tween_duration = 0.2
 var drag_offset: Vector2
 
-var _piece: global.PIECE
-var _black: bool
+var _piece: global.PieceSpec
 var _startScale: Vector2
 var _colliding_refs: Array = []
 var _prev_colliding_ref: StaticBody2D
@@ -113,10 +112,9 @@ func recycle():
 	if origin_ref != null:
 		origin_ref.reclaim(self)
 		
-func configure(tex: Texture2D, piece: global.PIECE, isBlack: bool):
+func configure(tex: Texture2D, piece: global.PIECE, piece_color: global.PIECE_COLOR):
 	var sprite = get_node("Sprite")
 	sprite.texture = tex
-	sprite.modulate = global.black_color if isBlack else global.white_color
-	_piece = piece
-	_black = isBlack
+	sprite.modulate = global.black_color if piece_color == global.PIECE_COLOR.BLACK else global.white_color
+	_piece = global.PieceSpec.new(piece, piece_color)
 	

@@ -1,6 +1,15 @@
 extends Node2D
 
 enum PIECE { PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING }
+enum PIECE_COLOR { WHITE, BLACK }
+
+class PieceSpec:
+	var type: PIECE
+	var color: PIECE_COLOR
+	
+	func _init(_type: PIECE, _color: PIECE_COLOR):
+		self.type = _type
+		self.color = _color
 
 var _drag_piece: Node2D
 

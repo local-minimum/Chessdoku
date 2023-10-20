@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d80gqqrylf1b"]
+[gd_scene load_steps=10 format=3 uid="uid://d80gqqrylf1b"]
 
 [ext_resource type="PackedScene" uid="uid://bk23b72som6gi" path="res://drop_area.tscn" id="1_l4ssu"]
 [ext_resource type="PackedScene" uid="uid://d05x2ayl6s3ko" path="res://spawner.tscn" id="2_r5u6o"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://csigvar8bbbis" path="res://Images/bishop.png" id="5_bxury"]
 [ext_resource type="Texture2D" uid="uid://1skqwc2yyyyf" path="res://Images/queen.png" id="6_d0g7o"]
 [ext_resource type="Texture2D" uid="uid://6yut6qw06cmx" path="res://Images/king.png" id="7_xjwvd"]
+[ext_resource type="Script" path="res://CDBox.gd" id="8_wvsln"]
 
 [node name="drag_and_drop" type="Node2D"]
 
@@ -56,46 +57,47 @@ position = Vector2(-8, 0)
 position = Vector2(1109, 44)
 scale = Vector2(0.5, 0.5)
 pieceType = 0
-isBlack = true
+pieceColor = 1
 tex = ExtResource("3_ayu0b")
 
 [node name="Rook Spawner" parent="Black Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 115)
 scale = Vector2(0.5, 0.5)
-isBlack = true
+pieceColor = 1
 tex = ExtResource("3_g8q3p")
 
 [node name="Knight Spawner" parent="Black Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 188)
 scale = Vector2(0.5, 0.5)
 pieceType = 2
-isBlack = true
+pieceColor = 1
 tex = ExtResource("4_l0bjy")
 
 [node name="Bishop Spawner" parent="Black Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 261)
 scale = Vector2(0.5, 0.5)
 pieceType = 3
-isBlack = true
+pieceColor = 1
 tex = ExtResource("5_bxury")
 
 [node name="Queen Spawner" parent="Black Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 332)
 scale = Vector2(0.5, 0.5)
 pieceType = 4
-isBlack = true
+pieceColor = 1
 tex = ExtResource("6_d0g7o")
 
 [node name="King Spawner" parent="Black Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 405)
 scale = Vector2(0.5, 0.5)
 pieceType = 5
-isBlack = true
+pieceColor = 1
 tex = ExtResource("7_xjwvd")
 
 [node name="Box 1" type="Node2D" parent="."]
 position = Vector2(-25, -21)
 scale = Vector2(0.4, 0.4)
+script = ExtResource("8_wvsln")
 
 [node name="Tile 1_1" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
