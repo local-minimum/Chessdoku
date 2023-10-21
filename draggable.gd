@@ -1,9 +1,11 @@
 extends Node2D
 
+class_name ChessPiece
+
 const mouse_enter_scale = 1.05
 var draggable = false
 var dragging = false
-var owner_ref: StaticBody2D
+var owner_tile: BoardTile
 var origin_ref: StaticBody2D
 var tween_duration = 0.2
 var drag_offset: Vector2
@@ -37,14 +39,14 @@ func end_drag():
 	
 	if col != null:
 		col.occupy(self)
-		if owner_ref != null:
-			owner_ref.end_occupation(self)
-		owner_ref = col
+		if owner_tile != null:
+			owner_tile.end_occupation(self)
+		owner_tile = col
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "global_position", col.global_position, tween_duration).set_ease(Tween.EASE_OUT)
-	elif owner_ref != null:
+	elif owner_tile != null:
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "global_position", owner_ref.global_position, tween_duration).set_ease(Tween.EASE_OUT)
+		tween.tween_property(self, "global_position", owner_tile.global_position, tween_duration).set_ease(Tween.EASE_OUT)
 	elif origin_ref != null:
 		origin_ref.reclaim(self)
 		
@@ -88,7 +90,7 @@ func _on_area_2d_mouse_exited():
 		scale = _startScale
 
 
-func _on_area_2d_body_entered(body: StaticBody2D):
+func _on_area_2d_body_entered(body: BoardTile):
 	if dragging and body.is_in_group("droppable") and body.can_occupy(self):	
 		_colliding_refs.append(body)	
 
@@ -96,7 +98,7 @@ func _on_area_2d_body_entered(body: StaticBody2D):
 func _on_area_2d_body_exited(body):
 	if not dragging:
 		return
-		
+	
 	if (colliding_ref == body):
 		body.end_hover()
 	_colliding_refs.erase(body)
@@ -118,3 +120,7 @@ func configure(tex: Texture2D, piece: global.PIECE, piece_color: global.PIECE_CO
 	sprite.modulate = global.black_color if piece_color == global.PIECE_COLOR.BLACK else global.white_color
 	_piece = global.PieceSpec.new(piece, piece_color)
 	
+func eqaul(other: ChessPiece):
+	if other == null:
+		return false
+	return _piece.color == other._piece.color and _piece.type == other._piece.type

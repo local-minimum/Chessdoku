@@ -1,20 +1,26 @@
 extends StaticBody2D
 
-@export var isBlackTile: bool
-var _occupier: Node2D
-var hover_color = Color(Color.MEDIUM_ORCHID, 0.7)
-	
-func can_occupy(piece: Node2D):
-	return _occupier == null || _occupier.origin_ref != piece.origin_ref
-	
-func occupy(piece: Node2D):
-	if _occupier != null:
-		_occupier.recycle()
-	_occupier = piece
+class_name BoardTile
 
-func end_occupation(piece: Node2D):
-	if _occupier == piece:
-		_occupier = null
+@export var isBlackTile: bool
+var occupant: ChessPiece
+var hover_color = Color(Color.MEDIUM_ORCHID, 0.7)
+var box_position: Vector2i
+var box: CDBox
+	
+func can_occupy(piece: ChessPiece):
+	if occupant != null && occupant == piece:
+		return false
+	return box.can_take(piece, self)
+	
+func occupy(piece: ChessPiece):
+	if occupant != null:
+		occupant.recycle()
+	occupant = piece
+
+func end_occupation(piece: ChessPiece):
+	if occupant == piece:
+		occupant = null
 
 func begin_hover():
 	modulate = hover_color
