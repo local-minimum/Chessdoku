@@ -32,6 +32,7 @@ func _ready():
 func can_take(piece: ChessPiece, tile: BoardTile):
 	var tiles = _tiles.values()
 
+	# Box piece rule
 	if tiles.any(func(t: BoardTile): return t.occupant == piece):		
 		return true
 

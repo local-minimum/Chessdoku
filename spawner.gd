@@ -11,7 +11,7 @@ var mouse_enter_scale = 1.05
 var tween_duration = 0.2
 var img: Sprite2D
 var start_scale: Vector2
-var _copies: int = 12
+var _copies: int = 9
 
 func _ready():		
 	start_scale = scale
