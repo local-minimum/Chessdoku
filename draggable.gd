@@ -124,3 +124,8 @@ func eqaul(other: ChessPiece):
 	if other == null:
 		return false
 	return _piece.color == other._piece.color and _piece.type == other._piece.type
+
+func same_type(other: ChessPiece):
+	if other == null:
+		return false
+	return _piece.type == other._piece.type

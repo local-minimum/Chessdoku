@@ -10,6 +10,11 @@ class PieceSpec:
 	func _init(_type: PIECE, _color: PIECE_COLOR):
 		self.type = _type
 		self.color = _color
+		
+	func same_type(other: PieceSpec):
+		if other == null:
+			return false
+		return type == other.type
 
 var _drag_piece: Node2D
 
