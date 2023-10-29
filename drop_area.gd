@@ -17,6 +17,7 @@ func occupy(piece: ChessPiece):
 	if occupant != null:
 		occupant.recycle()
 	occupant = piece
+	box.validate(self)
 
 func end_occupation(piece: ChessPiece):
 	if occupant == piece:

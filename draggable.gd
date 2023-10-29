@@ -129,3 +129,9 @@ func same_type(other: ChessPiece):
 	if other == null:
 		return false
 	return _piece.type == other._piece.type
+
+func piece_type():
+	return _piece.type
+	
+func piece_color():
+	return _piece.color

@@ -4,11 +4,13 @@ class_name CDBox
 
 var _puzzle: Puzzle
 var _tiles = Dictionary()
+var _box_rule_indicator: BoxRuleIndicator
 # Called when the node enters the scene tree for the first time.
 
 	
 func _ready():
 	_puzzle = find_parent("Puzzle")
+	_box_rule_indicator = find_child("BoxRuleIndicator")
 	var tiles = find_children("Tile *")
 	
 	var r: RegEx = RegEx.new()
@@ -79,3 +81,10 @@ func can_take(piece: ChessPiece, tile: BoardTile):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+func pieces():
+	return _tiles.values().map(func extract_occupant(t: BoardTile): return t.occupant).filter(func only_pieces(p: ChessPiece): return p != null)
+
+
+func validate(tile: BoardTile):
+	_box_rule_indicator.validate()

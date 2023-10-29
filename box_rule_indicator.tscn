@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbyf5ha5wtq4e"]
+
+[ext_resource type="Texture2D" uid="uid://dsramgt2w8blu" path="res://Images/corner.png" id="1_3dchy"]
+[ext_resource type="Script" path="res://box_rule_indicator.gd" id="1_ff0hd"]
+
+[node name="BoxRuleIndicator" type="Node2D"]
+script = ExtResource("1_ff0hd")
+
+[node name="Corner 1" type="Sprite2D" parent="."]
+texture = ExtResource("1_3dchy")
+offset = Vector2(-128, -128)
+
+[node name="Corner 2" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_3dchy")
+offset = Vector2(-128, -128)
+
+[node name="Corner 3" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("1_3dchy")
+offset = Vector2(-128, -128)
+
+[node name="Corner 4" type="Sprite2D" parent="."]
+position = Vector2(-128, 128)
+rotation = 4.71239
+texture = ExtResource("1_3dchy")

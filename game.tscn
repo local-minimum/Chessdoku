@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d80gqqrylf1b"]
+[gd_scene load_steps=12 format=3 uid="uid://d80gqqrylf1b"]
 
 [ext_resource type="PackedScene" uid="uid://bk23b72som6gi" path="res://drop_area.tscn" id="1_l4ssu"]
 [ext_resource type="Script" path="res://Puzzle.gd" id="1_nbs8j"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://1skqwc2yyyyf" path="res://Images/queen.png" id="6_d0g7o"]
 [ext_resource type="Texture2D" uid="uid://6yut6qw06cmx" path="res://Images/king.png" id="7_xjwvd"]
 [ext_resource type="Script" path="res://CDBox.gd" id="8_wvsln"]
+[ext_resource type="PackedScene" uid="uid://dbyf5ha5wtq4e" path="res://box_rule_indicator.tscn" id="10_kuo6b"]
 
 [node name="Puzzle" type="Node2D"]
 script = ExtResource("1_nbs8j")
@@ -101,6 +102,10 @@ position = Vector2(-25, -21)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
+[node name="BoxRuleIndicator" parent="Box 1" instance=ExtResource("10_kuo6b")]
+position = Vector2(375, 347.7)
+scale = Vector2(1.11, 1.07)
+
 [node name="Tile 1_1" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
 
@@ -161,6 +166,10 @@ position = Vector2(586, 549)
 position = Vector2(201, -21)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
+
+[node name="BoxRuleIndicator" parent="Box 2" instance=ExtResource("10_kuo6b")]
+position = Vector2(375, 347.7)
+scale = Vector2(1.11, 1.07)
 
 [node name="Tile 1_1" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
@@ -223,6 +232,10 @@ position = Vector2(427, -21)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
+[node name="BoxRuleIndicator" parent="Box 3" instance=ExtResource("10_kuo6b")]
+position = Vector2(375, 347.7)
+scale = Vector2(1.11, 1.07)
+
 [node name="Tile 1_1" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
 
@@ -283,6 +296,10 @@ position = Vector2(586, 549)
 position = Vector2(-25, 199)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
+
+[node name="BoxRuleIndicator" parent="Box 4" instance=ExtResource("10_kuo6b")]
+position = Vector2(375, 347.7)
+scale = Vector2(1.11, 1.07)
 
 [node name="Tile 1_1" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
@@ -345,6 +362,10 @@ position = Vector2(201, 199)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
+[node name="BoxRuleIndicator" parent="Box 5" instance=ExtResource("10_kuo6b")]
+position = Vector2(375, 347.7)
+scale = Vector2(1.11, 1.07)
+
 [node name="Tile 1_1" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
 
@@ -405,6 +426,10 @@ position = Vector2(586, 549)
 position = Vector2(427, 199)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
+
+[node name="BoxRuleIndicator" parent="Box 6" instance=ExtResource("10_kuo6b")]
+position = Vector2(375, 347.7)
+scale = Vector2(1.11, 1.07)
 
 [node name="Tile 1_1" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
@@ -467,6 +492,10 @@ position = Vector2(-25, 417)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
+[node name="BoxRuleIndicator" parent="Box 7" instance=ExtResource("10_kuo6b")]
+position = Vector2(375, 347.7)
+scale = Vector2(1.11, 1.07)
+
 [node name="Tile 1_1" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
 
@@ -528,6 +557,10 @@ position = Vector2(201, 417)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
+[node name="BoxRuleIndicator" parent="Box 8" instance=ExtResource("10_kuo6b")]
+position = Vector2(375, 347.7)
+scale = Vector2(1.11, 1.07)
+
 [node name="Tile 1_1" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
 
@@ -588,6 +621,10 @@ position = Vector2(586, 549)
 position = Vector2(427, 417)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
+
+[node name="BoxRuleIndicator" parent="Box 9" instance=ExtResource("10_kuo6b")]
+position = Vector2(375, 347.7)
+scale = Vector2(1.11, 1.07)
 
 [node name="Tile 1_1" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
