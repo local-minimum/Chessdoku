@@ -13,19 +13,11 @@ func _ready():
 	for s in _sprites:
 		s.visible = valid
 	
-
+# Exactly one of each kind in box
 func _validate_rule():
 	var pieces  = _box.pieces()
-	var counter = pieces.reduce(
-		func (acc: Dictionary, piece: ChessPiece):
-			var piece_type = piece.piece_type()
-			if acc.has(piece_type):
-				acc[piece_type].append(piece.piece_color())
-			else:
-				acc[piece_type] = [piece.piece_color()]
-			return acc, 
-		{}
-	)
+	var counter = PuzzleUtils.count_pieces(pieces)
+	
 	if counter.size() != 6:
 		return false
 	

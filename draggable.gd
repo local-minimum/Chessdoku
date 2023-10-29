@@ -114,11 +114,11 @@ func recycle():
 	if origin_ref != null:
 		origin_ref.reclaim(self)
 		
-func configure(tex: Texture2D, piece: global.PIECE, piece_color: global.PIECE_COLOR):
+func configure(tex: Texture2D, piece: global.PIECE, color: global.PIECE_COLOR):
 	var sprite = get_node("Sprite")
 	sprite.texture = tex
-	sprite.modulate = global.black_color if piece_color == global.PIECE_COLOR.BLACK else global.white_color
-	_piece = global.PieceSpec.new(piece, piece_color)
+	sprite.modulate = global.black_color if color == global.PIECE_COLOR.BLACK else global.white_color
+	_piece = global.PieceSpec.new(piece, color)
 	
 func eqaul(other: ChessPiece):
 	if other == null:

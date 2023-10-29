@@ -85,6 +85,13 @@ func _process(_delta):
 func pieces():
 	return _tiles.values().map(func extract_occupant(t: BoardTile): return t.occupant).filter(func only_pieces(p: ChessPiece): return p != null)
 
-
+func get_piece(coords: Vector2i):
+	var tile: BoardTile = _tiles[coords]
+	if (tile == null):
+		return null
+	return tile.occupant	
+	
+	
 func validate(tile: BoardTile):
 	_box_rule_indicator.validate()
+	_puzzle.validate(self, _tile_as_coordinates(tile))

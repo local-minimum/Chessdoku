@@ -22,6 +22,7 @@ func occupy(piece: ChessPiece):
 func end_occupation(piece: ChessPiece):
 	if occupant == piece:
 		occupant = null
+		box.validate(self)
 
 func begin_hover():
 	modulate = hover_color

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://7nn36gvggsi7"]
+
+[ext_resource type="Texture2D" uid="uid://b6ldg82fltua5" path="res://Images/check_bg.png" id="1_h2bn4"]
+[ext_resource type="Script" path="res://row_col_rule_indicator.gd" id="1_vktmh"]
+[ext_resource type="Texture2D" uid="uid://jkqqodabqtoe" path="res://Images/check.png" id="2_jie2y"]
+
+[node name="RowColRuleIndicator" type="Node2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_vktmh")
+number = 1
+
+[node name="ValidFrame" type="Sprite2D" parent="."]
+texture = ExtResource("1_h2bn4")
+
+[node name="Valid" type="Sprite2D" parent="."]
+texture = ExtResource("2_jie2y")

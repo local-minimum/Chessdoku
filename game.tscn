@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d80gqqrylf1b"]
+[gd_scene load_steps=13 format=3 uid="uid://d80gqqrylf1b"]
 
 [ext_resource type="PackedScene" uid="uid://bk23b72som6gi" path="res://drop_area.tscn" id="1_l4ssu"]
 [ext_resource type="Script" path="res://Puzzle.gd" id="1_nbs8j"]
@@ -11,12 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://6yut6qw06cmx" path="res://Images/king.png" id="7_xjwvd"]
 [ext_resource type="Script" path="res://CDBox.gd" id="8_wvsln"]
 [ext_resource type="PackedScene" uid="uid://dbyf5ha5wtq4e" path="res://box_rule_indicator.tscn" id="10_kuo6b"]
+[ext_resource type="PackedScene" uid="uid://7nn36gvggsi7" path="res://row_col_rule_indicator.tscn" id="12_okeyx"]
 
 [node name="Puzzle" type="Node2D"]
 script = ExtResource("1_nbs8j")
 
 [node name="White Spawners" type="Node2D" parent="."]
-position = Vector2(-329, 0)
+position = Vector2(-322, -5)
 
 [node name="Pawn Spawner" parent="White Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 44)
@@ -54,7 +55,7 @@ pieceType = 5
 tex = ExtResource("7_xjwvd")
 
 [node name="Black Spawners" type="Node2D" parent="."]
-position = Vector2(-250, 0)
+position = Vector2(-243, -5)
 
 [node name="Pawn Spawner" parent="Black Spawners" instance=ExtResource("2_r5u6o")]
 position = Vector2(1109, 44)
@@ -98,7 +99,7 @@ pieceColor = 1
 tex = ExtResource("7_xjwvd")
 
 [node name="Box 1" type="Node2D" parent="."]
-position = Vector2(-25, -21)
+position = Vector2(-32, -26)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
@@ -163,7 +164,7 @@ isBlackTile = true
 position = Vector2(586, 549)
 
 [node name="Box 2" type="Node2D" parent="."]
-position = Vector2(201, -21)
+position = Vector2(194, -26)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
@@ -228,7 +229,7 @@ isBlackTile = true
 position = Vector2(586, 549)
 
 [node name="Box 3" type="Node2D" parent="."]
-position = Vector2(427, -21)
+position = Vector2(420, -26)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
@@ -293,7 +294,7 @@ isBlackTile = true
 position = Vector2(586, 549)
 
 [node name="Box 4" type="Node2D" parent="."]
-position = Vector2(-25, 199)
+position = Vector2(-32, 194)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
@@ -358,7 +359,7 @@ isBlackTile = true
 position = Vector2(586, 549)
 
 [node name="Box 5" type="Node2D" parent="."]
-position = Vector2(201, 199)
+position = Vector2(194, 194)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
@@ -423,7 +424,7 @@ isBlackTile = true
 position = Vector2(586, 549)
 
 [node name="Box 6" type="Node2D" parent="."]
-position = Vector2(427, 199)
+position = Vector2(420, 194)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
@@ -488,7 +489,7 @@ isBlackTile = true
 position = Vector2(586, 549)
 
 [node name="Box 7" type="Node2D" parent="."]
-position = Vector2(-25, 417)
+position = Vector2(-32, 412)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
@@ -553,7 +554,7 @@ isBlackTile = true
 position = Vector2(586, 549)
 
 [node name="Box 8" type="Node2D" parent="."]
-position = Vector2(201, 417)
+position = Vector2(194, 412)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
@@ -618,7 +619,7 @@ isBlackTile = true
 position = Vector2(586, 549)
 
 [node name="Box 9" type="Node2D" parent="."]
-position = Vector2(427, 417)
+position = Vector2(420, 412)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("8_wvsln")
 
@@ -681,3 +682,115 @@ isBlackTile = true
 
 [node name="Tile 4_4" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 549)
+
+[node name="RowColRuleIndicators" type="Node2D" parent="."]
+
+[node name="RowRuleIndicators" type="Node2D" parent="RowColRuleIndicators"]
+
+[node name="RowRuleIndicator 1" parent="RowColRuleIndicators/RowRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(704, 36)
+
+[node name="RowRuleIndicator 2" parent="RowColRuleIndicators/RowRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(704, 90)
+number = 2
+
+[node name="RowRuleIndicator 3" parent="RowColRuleIndicators/RowRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(704, 143)
+number = 3
+
+[node name="RowRuleIndicator 4" parent="RowColRuleIndicators/RowRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(704, 197)
+number = 4
+
+[node name="RowRuleIndicator 5" parent="RowColRuleIndicators/RowRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(704, 261)
+number = 5
+
+[node name="RowRuleIndicator 6" parent="RowColRuleIndicators/RowRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(704, 311)
+number = 6
+
+[node name="RowRuleIndicator 7" parent="RowColRuleIndicators/RowRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(704, 364)
+number = 7
+
+[node name="RowRuleIndicator 8" parent="RowColRuleIndicators/RowRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(704, 416)
+number = 8
+
+[node name="RowRuleIndicator 9" parent="RowColRuleIndicators/RowRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(704, 478)
+number = 9
+
+[node name="RowRuleIndicator 10" parent="RowColRuleIndicators/RowRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(704, 530)
+number = 10
+
+[node name="RowRuleIndicator 11" parent="RowColRuleIndicators/RowRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(704, 579)
+number = 11
+
+[node name="RowRuleIndicator 12" parent="RowColRuleIndicators/RowRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(704, 635)
+number = 12
+
+[node name="ColRuleIndicators" type="Node2D" parent="RowColRuleIndicators/RowRuleIndicators"]
+
+[node name="ColRuleIndicator 1" parent="RowColRuleIndicators/RowRuleIndicators/ColRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(36, 682)
+direction = 1
+
+[node name="ColRuleIndicator 2" parent="RowColRuleIndicators/RowRuleIndicators/ColRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(89, 680)
+number = 2
+direction = 1
+
+[node name="ColRuleIndicator 3" parent="RowColRuleIndicators/RowRuleIndicators/ColRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(145, 680)
+number = 3
+direction = 1
+
+[node name="ColRuleIndicator 4" parent="RowColRuleIndicators/RowRuleIndicators/ColRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(201, 680)
+number = 4
+direction = 1
+
+[node name="ColRuleIndicator 5" parent="RowColRuleIndicators/RowRuleIndicators/ColRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(260, 681)
+number = 5
+direction = 1
+
+[node name="ColRuleIndicator 6" parent="RowColRuleIndicators/RowRuleIndicators/ColRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(314, 681)
+number = 6
+direction = 1
+
+[node name="ColRuleIndicator 7" parent="RowColRuleIndicators/RowRuleIndicators/ColRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(371, 679)
+number = 7
+direction = 1
+
+[node name="ColRuleIndicator 8" parent="RowColRuleIndicators/RowRuleIndicators/ColRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(425, 680)
+number = 8
+direction = 1
+
+[node name="ColRuleIndicator 9" parent="RowColRuleIndicators/RowRuleIndicators/ColRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(486, 681)
+number = 9
+direction = 1
+
+[node name="ColRuleIndicator 10" parent="RowColRuleIndicators/RowRuleIndicators/ColRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(541, 681)
+number = 10
+direction = 1
+
+[node name="ColRuleIndicator 11" parent="RowColRuleIndicators/RowRuleIndicators/ColRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(596, 681)
+number = 11
+direction = 1
+
+[node name="ColRuleIndicator 12" parent="RowColRuleIndicators/RowRuleIndicators/ColRuleIndicators" instance=ExtResource("12_okeyx")]
+position = Vector2(654, 681)
+number = 12
+direction = 1

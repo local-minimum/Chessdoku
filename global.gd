@@ -42,3 +42,4 @@ var tile_tint_black_color = Color(Color.DARK_VIOLET, 0.6)
 
 # Assist mode
 var show_box_rule_status = true
+var show_row_col_rule_status = true
