@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d80gqqrylf1b"]
+[gd_scene load_steps=14 format=3 uid="uid://d80gqqrylf1b"]
 
 [ext_resource type="PackedScene" uid="uid://bk23b72som6gi" path="res://drop_area.tscn" id="1_l4ssu"]
 [ext_resource type="Script" path="res://Puzzle.gd" id="1_nbs8j"]
@@ -12,9 +12,11 @@
 [ext_resource type="Script" path="res://CDBox.gd" id="8_wvsln"]
 [ext_resource type="PackedScene" uid="uid://dbyf5ha5wtq4e" path="res://box_rule_indicator.tscn" id="10_kuo6b"]
 [ext_resource type="PackedScene" uid="uid://7nn36gvggsi7" path="res://row_col_rule_indicator.tscn" id="12_okeyx"]
+[ext_resource type="Script" path="res://Pawns.gd" id="13_sxyi5"]
 
-[node name="Puzzle" type="Node2D"]
+[node name="Puzzle" type="Node2D" node_paths=PackedStringArray("_pawn_rules")]
 script = ExtResource("1_nbs8j")
+_pawn_rules = NodePath("Capture Rules/Pawns")
 
 [node name="White Spawners" type="Node2D" parent="."]
 position = Vector2(-322, -5)
@@ -794,3 +796,8 @@ direction = 1
 position = Vector2(654, 681)
 number = 12
 direction = 1
+
+[node name="Capture Rules" type="Node2D" parent="."]
+
+[node name="Pawns" type="Node2D" parent="Capture Rules"]
+script = ExtResource("13_sxyi5")

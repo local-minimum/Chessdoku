@@ -135,3 +135,6 @@ func piece_type():
 	
 func piece_color():
 	return _piece.color
+	
+func spec():
+	return _piece

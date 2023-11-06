@@ -16,6 +16,9 @@ class PieceSpec:
 			return false
 		return type == other.type
 
+	func equal(other: PieceSpec):
+		return color == other.color and type == other.type
+
 var _drag_piece: Node2D
 
 var is_dragging: bool:
@@ -34,6 +37,9 @@ func set_dragged(piece: Node2D):
 	if _drag_piece == null:
 		_drag_piece = piece
 
+func on_board(coordinates: Vector2i):
+	return coordinates.x >= 1 and coordinates.x <= 12 and coordinates.y >= 1 and coordinates.y <= 12
+
 # Colors
 var white_color = Color.ANTIQUE_WHITE
 var black_color = Color.DARK_SLATE_GRAY
@@ -43,3 +49,7 @@ var tile_tint_black_color = Color(Color.DARK_VIOLET, 0.6)
 # Assist mode
 var show_box_rule_status = true
 var show_row_col_rule_status = true
+
+# Rules
+enum PIECE_RULE { THREATEN_SAME_TYPE }
+var piece_rule: PIECE_RULE = PIECE_RULE.THREATEN_SAME_TYPE

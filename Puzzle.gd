@@ -69,7 +69,7 @@ func can_take_piece_in_col(piece: ChessPiece, box: CDBox, box_col: int, match_on
 			return false
 	return true
 	
-func can_take_pice(piece: ChessPiece, box: CDBox, internal_coords: Vector2i):
+func can_take_pice(piece: ChessPiece, box: CDBox, internal_coords: Vector2i):	
 	return (
 		can_take_piece_in_row(piece, box, internal_coords.y) 
 		and can_take_piece_in_col(piece, box, internal_coords.x)
@@ -93,6 +93,41 @@ func row_pieces(row: int):
 func col_pieces(col: int):	
 	return _numbers.map(func piece_getter(n): return get_piece(Vector2i(col, n))).filter(func not_null(v): return v != null)
 
+
+func get_pieces():
+	var position_to_piece: Dictionary = {}
+	var color_to_positions: Dictionary = {}
+	var type_to_positions: Dictionary = {}
+	
+	for row in _numbers:
+		for col in _numbers:
+			var coords = Vector2i(col, row)
+			var piece = get_piece(coords)
+			if piece != null:
+				var spec = piece.spec()
+				position_to_piece[coords] = spec
+				
+				if type_to_positions.has(spec.type):
+					type_to_positions[spec.type].append(coords)
+				else:
+					type_to_positions[spec.type] = [coords]
+
+				if color_to_positions.has(spec.color):
+					color_to_positions[spec.color].append(coords)
+				else:
+					color_to_positions[spec.color] = [coords]
+					
+	return [position_to_piece, type_to_positions, color_to_positions]
+
+@export var _pawn_rules: PawnRules
+
+func validate_capture_rules(coordinates: Vector2i):
+	var positions_types_colors = get_pieces()
+	var position_to_piece = positions_types_colors[0]
+	var type_to_positions = positions_types_colors[1]
+	var color_to_positions = positions_types_colors[2]
+	_pawn_rules.validate(position_to_piece)
+	
 func validate(box: CDBox, coordinates: Vector2i):
 	var box_coords = _box_as_coordinates(box)
 	
@@ -101,3 +136,5 @@ func validate(box: CDBox, coordinates: Vector2i):
 	
 	var col = (box_coords.x - 1) * 4 + coordinates.x
 	_col_rules[col - 1].validate()
+	
+	validate_capture_rules(Vector2i(col, row))
