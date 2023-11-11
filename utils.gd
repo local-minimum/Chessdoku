@@ -23,7 +23,8 @@ func has_line_of_sight_by_piece_rule(
 	coordinates: Vector2i,
 	piece: global.PieceSpec,
 	directions: Array, 
-	position_to_piece: Dictionary	
+	position_to_piece: Dictionary,
+	only_single_step: bool = false,
 ):
 	for direction in directions:
 		var check_coords: Vector2i = coordinates + direction
@@ -36,6 +37,9 @@ func has_line_of_sight_by_piece_rule(
 				if global.check_piece_rule(piece, position_to_piece[check_coords]):
 					return true
 			
+			if only_single_step:
+				break
+				
 			check_coords += direction
 
 	return false
