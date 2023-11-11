@@ -18,7 +18,22 @@ class PieceSpec:
 
 	func equal(other: PieceSpec):
 		return color == other.color and type == other.type
-
+		
+	func to_notation():
+		if type == PIECE.PAWN:
+			return "P" if color == PIECE_COLOR.WHITE else "p"
+		if type == PIECE.BISHOP:
+			return "B" if color == PIECE_COLOR.WHITE else "b"
+		if type == PIECE.KNIGHT:
+			return "N" if color == PIECE_COLOR.WHITE else "n"
+		if type == PIECE.ROOK:
+			return "R" if color == PIECE_COLOR.WHITE else "r"
+		if type == PIECE.QUEEN:
+			return "Q" if color == PIECE_COLOR.WHITE else "q"
+		if type == PIECE.KING:
+			return "K" if color == PIECE_COLOR.WHITE else "k"
+		return "?"
+		
 var _drag_piece: Node2D
 
 var is_dragging: bool:

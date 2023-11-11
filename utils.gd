@@ -18,7 +18,6 @@ func extract_piece_positions(position_to_piece: Dictionary, piece_type: global.P
 			return piece.type == piece_type
 	)
 
-
 func has_line_of_sight_by_piece_rule(
 	coordinates: Vector2i,
 	piece: global.PieceSpec,
@@ -43,7 +42,6 @@ func has_line_of_sight_by_piece_rule(
 			check_coords += direction
 
 	return false
-
 
 func get_opponent_pieces_by_line_of_sight(
 	coordinates: Vector2i,

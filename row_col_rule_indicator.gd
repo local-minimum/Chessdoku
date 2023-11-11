@@ -37,6 +37,12 @@ func _validate_rule():
 		
 	return counts.values().all(func (colors): return colors.size() == 2 and colors[0] != colors[1] or colors.size() == 1)
 
+var _valid: bool = false
+
 func validate():
-	var valid = _validate_rule()
-	_check.visible = valid
+	_valid = _validate_rule()
+	_check.visible = _valid
+	return _valid
+	
+func valid():
+	return _valid

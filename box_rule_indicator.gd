@@ -23,8 +23,13 @@ func _validate_rule():
 	
 	return counter.values().all(func(colors: Array): return colors.size() == 2 and colors[0] != colors[1])
 
+var _valid: bool = false
+
 func validate():
-	var valid = _validate_rule()
+	_valid = _validate_rule()
 	if global.show_box_rule_status:
 		for s in _sprites:
-			s.visible = valid
+			s.visible = _valid
+
+func valid():
+	return _valid

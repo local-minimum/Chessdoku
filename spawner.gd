@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name PieceSpawner
 
 @export var template: PackedScene
 @export var pieceType: global.PIECE
@@ -66,3 +67,6 @@ func reclaim(piece: Node2D):
 	var tween = get_tree().create_tween()
 	tween.tween_property(piece, "global_position", global_position, tween_duration).set_ease(Tween.EASE_OUT)
 	tween.tween_callback(func (): get_tree().root.remove_child(piece); piece.call_deferred("free"))	
+
+func valid():
+	return _copies == 0

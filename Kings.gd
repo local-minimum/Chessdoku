@@ -3,6 +3,11 @@ class_name KingRules
 
 var _rule_indicator: RuleIndicator
 
+const directions = [
+	Vector2i(-1, -1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(1, 1),
+	Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, -1), Vector2i(0, 1),
+]
+
 func _ready():
 	_rule_indicator = get_node("Indicator")
 	if global.show_piece_rule_status != true:
@@ -41,7 +46,7 @@ func _capturable(source: Vector2i, type: global.PIECE, color: global.PIECE_COLOR
 	return false
 	
 func _position_under_attack(coordinates: Vector2i, piece: global.PieceSpec, position_to_piece: Dictionary):	
-	var opponents = PuzzleUtils.get_opponent_pieces_by_line_of_sight(coordinates, piece, QueenRules.directions, position_to_piece)
+	var opponents = PuzzleUtils.get_opponent_pieces_by_line_of_sight(coordinates, piece, directions, position_to_piece)
 	var opponent_color = global.PIECE_COLOR.BLACK if piece.color == global.PIECE_COLOR.WHITE else global.PIECE_COLOR.WHITE
 	
 	for opponent_coords in opponents.keys():
@@ -64,7 +69,7 @@ func validate_king(coordinates: Vector2i, position_to_piece: Dictionary):
 	var p2p_without_king = position_to_piece.duplicate()
 	p2p_without_king.erase(coordinates)
 	
-	for direction in QueenRules.directions:
+	for direction in directions:
 		var escape_position = coordinates + direction
 		
 		if not global.on_board(escape_position):

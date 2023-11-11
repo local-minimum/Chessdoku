@@ -5,8 +5,6 @@ class_name CDBox
 var _puzzle: Puzzle
 var _tiles = Dictionary()
 var _box_rule_indicator: BoxRuleIndicator
-# Called when the node enters the scene tree for the first time.
-
 	
 func _ready():
 	_puzzle = find_parent("Puzzle")
@@ -50,14 +48,14 @@ func _match_rule(piece: ChessPiece, other: ChessPiece, match_type_only: bool):
 	return false
 	
 func has_piece_in_row(piece: ChessPiece, row: int, match_type_only: bool = false):
-	for col in range(1, 4):
+	for col in range(1, 5):
 		var tile: BoardTile = _tiles[Vector2i(col, row)]
 		if _match_rule(piece, tile.occupant, match_type_only):
 			return true
 	return false
 		
 func has_piece_in_col(piece: ChessPiece, col: int, match_type_only: bool = false):
-	for row in range(1, 4):
+	for row in range(1, 5):
 		var tile: BoardTile = _tiles[Vector2i(col, row)]
 		if _match_rule(piece, tile.occupant, match_type_only):
 			return true
@@ -95,3 +93,6 @@ func get_piece(coords: Vector2i):
 func validate(tile: BoardTile):
 	_box_rule_indicator.validate()
 	_puzzle.validate(self, _tile_as_coordinates(tile))
+
+func valid():
+	return _box_rule_indicator.valid()
