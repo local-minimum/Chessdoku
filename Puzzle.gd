@@ -122,15 +122,17 @@ func get_pieces():
 @export var _pawn_rules: PawnRules
 @export var _rook_rules: RookRules
 @export var _bishop_rules: BishopRules
+@export var _knight_rules: HorseRules
 
 func validate_capture_rules(coordinates: Vector2i):
 	var positions_types_colors = get_pieces()
 	var position_to_piece = positions_types_colors[0]
-	var type_to_positions = positions_types_colors[1]
-	var color_to_positions = positions_types_colors[2]
+	# var type_to_positions = positions_types_colors[1]
+	# var color_to_positions = positions_types_colors[2]
 	_pawn_rules.validate(position_to_piece)
 	_rook_rules.validate(position_to_piece)
 	_bishop_rules.validate(position_to_piece)
+	_knight_rules.validate(position_to_piece)
 	
 func validate(box: CDBox, coordinates: Vector2i):
 	var box_coords = _box_as_coordinates(box)
