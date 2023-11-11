@@ -15,10 +15,14 @@ func validate_pawn(coordinates: Vector2i, position_to_piece: Dictionary):
 		var take_coordinates = Vector2i(coordinates.x + x_offset, check_row)
 		
 		if global.on_board(take_coordinates):
-			if global.piece_rule == global.PIECE_RULE.THREATEN_SAME_TYPE:
-				if position_to_piece.has(take_coordinates):
-					var other: global.PieceSpec = position_to_piece[take_coordinates]
+			if position_to_piece.has(take_coordinates):
+				var other: global.PieceSpec = position_to_piece[take_coordinates]
+				
+				if global.piece_rule == global.PIECE_RULE.THREATEN_SAME_TYPE:
 					if other.type == global.PIECE.PAWN and other.color != piece.color:
+						return true
+				elif global.piece_rule == global.PIECE_RULE.THREATEN_OPPONENT:
+					if other.color != piece.color:
 						return true
 	
 	return false
@@ -31,6 +35,6 @@ func validate(
 			var piece: global.PieceSpec = position_to_piece[key]			
 			return piece.type == global.PIECE.PAWN
 	).all(
-		func fails_rule(key: Vector2i):
+		func passes_rule(key: Vector2i):
 			return validate_pawn(key, position_to_piece) == true
 	)

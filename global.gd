@@ -51,5 +51,5 @@ var show_box_rule_status = true
 var show_row_col_rule_status = true
 
 # Rules
-enum PIECE_RULE { THREATEN_SAME_TYPE }
+enum PIECE_RULE { THREATEN_SAME_TYPE, THREATEN_OPPONENT }
 var piece_rule: PIECE_RULE = PIECE_RULE.THREATEN_SAME_TYPE
