@@ -43,3 +43,29 @@ func has_line_of_sight_by_piece_rule(
 			check_coords += direction
 
 	return false
+
+
+func get_opponent_pieces_by_line_of_sight(
+	coordinates: Vector2i,
+	piece: global.PieceSpec,
+	directions: Array, 
+	position_to_piece: Dictionary,
+):
+	var pieces: Dictionary = {}
+	
+	for direction in directions:
+		var check_coords: Vector2i = coordinates + direction
+		var collided = false
+		while global.on_board(check_coords) and not collided:
+			
+			if position_to_piece.has(check_coords):
+				collided = true
+				
+				if piece.color != position_to_piece[check_coords].color:
+					pieces[check_coords] = position_to_piece[check_coords].type
+					
+				break
+				
+			check_coords += direction
+
+	return pieces

@@ -8,7 +8,7 @@ func _ready():
 	if global.show_piece_rule_status != true:
 		_rule_indicator.disable()
 
-var directions = [Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, -1), Vector2i(0, 1)]
+const directions = [Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, -1), Vector2i(0, 1)]
 
 func validate_rook(coordinates: Vector2i, position_to_piece: Dictionary):
 	var piece: global.PieceSpec = position_to_piece[coordinates]

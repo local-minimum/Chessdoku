@@ -8,8 +8,9 @@ func _ready():
 	if global.show_piece_rule_status != true:
 		_rule_indicator.disable()
 
-var _white_directions = [Vector2i(-1, -1), Vector2i(1, -1)]	
-var _black_directions = [Vector2i(-1, 1), Vector2i(1, 1)]
+const _white_directions = [Vector2i(-1, -1), Vector2i(1, -1)]	
+const _black_directions = [Vector2i(-1, 1), Vector2i(1, 1)]
+
 func validate_pawn(coordinates: Vector2i, position_to_piece: Dictionary):
 	var piece: global.PieceSpec = position_to_piece[coordinates]
 	

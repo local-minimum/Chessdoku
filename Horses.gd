@@ -8,7 +8,7 @@ func _ready():
 	if global.show_piece_rule_status != true:
 		_rule_indicator.disable()
 
-var _directions = [
+const directions = [
 	Vector2i(-2, -1), Vector2i(-1, -2), 
 	Vector2i(1, -2), Vector2i(2, -1),
 	Vector2i(2, 1), Vector2i(1, 2),
@@ -24,7 +24,7 @@ func validate_knight(coordinates: Vector2i, position_to_piece: Dictionary):
 	return PuzzleUtils.has_line_of_sight_by_piece_rule(
 		coordinates,
 		piece,
-		_directions,
+		directions,
 		position_to_piece,
 		true,
 	)
