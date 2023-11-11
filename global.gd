@@ -49,7 +49,17 @@ var tile_tint_black_color = Color(Color.DARK_VIOLET, 0.6)
 # Assist mode
 var show_box_rule_status = true
 var show_row_col_rule_status = true
+var show_piece_rule_status = true
 
 # Rules
 enum PIECE_RULE { THREATEN_SAME_TYPE, THREATEN_OPPONENT }
-var piece_rule: PIECE_RULE = PIECE_RULE.THREATEN_SAME_TYPE
+var piece_rule: PIECE_RULE = PIECE_RULE.THREATEN_OPPONENT
+
+
+func check_piece_rule(piece: PieceSpec, other: PieceSpec):
+	if piece_rule == PIECE_RULE.THREATEN_SAME_TYPE:
+		return other.type == piece.type and other.color != piece.color
+	elif global.piece_rule == global.PIECE_RULE.THREATEN_OPPONENT:
+		return other.color != piece.color
+	return false
+	

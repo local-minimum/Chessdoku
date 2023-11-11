@@ -2,6 +2,13 @@ extends Node2D
 
 class_name PawnRules
 
+var _rule_indicator: RuleIndicator
+
+func _ready():
+	_rule_indicator = get_node("Indicator")
+	if global.show_piece_rule_status != true:
+		_rule_indicator.disable()
+	
 func validate_pawn(coordinates: Vector2i, position_to_piece: Dictionary):
 	var piece: global.PieceSpec = position_to_piece[coordinates]
 	
@@ -16,25 +23,25 @@ func validate_pawn(coordinates: Vector2i, position_to_piece: Dictionary):
 		
 		if global.on_board(take_coordinates):
 			if position_to_piece.has(take_coordinates):
-				var other: global.PieceSpec = position_to_piece[take_coordinates]
-				
-				if global.piece_rule == global.PIECE_RULE.THREATEN_SAME_TYPE:
-					if other.type == global.PIECE.PAWN and other.color != piece.color:
-						return true
-				elif global.piece_rule == global.PIECE_RULE.THREATEN_OPPONENT:
-					if other.color != piece.color:
-						return true
+				if global.check_piece_rule(piece, position_to_piece[take_coordinates]):
+					return true
 	
 	return false
 
 func validate(
 	position_to_piece: Dictionary, 
 ):
-	return position_to_piece.keys().filter(
-		func key_filter(key: Vector2i):
-			var piece: global.PieceSpec = position_to_piece[key]			
-			return piece.type == global.PIECE.PAWN
-	).all(
+	var pieces: Array = PuzzleUtils.extract_piece_positions(position_to_piece, global.PIECE.PAWN)
+	
+	var valid = not pieces.is_empty() and pieces.all(
 		func passes_rule(key: Vector2i):
 			return validate_pawn(key, position_to_piece) == true
 	)
+	
+	if global.show_piece_rule_status:
+		if valid:
+			_rule_indicator.check()
+		else:
+			_rule_indicator.uncheck()
+	
+	return valid

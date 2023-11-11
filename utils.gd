@@ -10,3 +10,32 @@ func _piece_aggregator(acc: Dictionary, piece: ChessPiece):
 
 func count_pieces(pieces: Array):
 	return pieces.reduce(_piece_aggregator, {})
+
+func extract_piece_positions(position_to_piece: Dictionary, piece_type: global.PIECE):
+	return position_to_piece.keys().filter(
+		func piece_filter(key: Vector2i):
+			var piece: global.PieceSpec = position_to_piece[key]	
+			return piece.type == piece_type
+	)
+
+
+func has_line_of_sight_by_piece_rule(
+	coordinates: Vector2i,
+	piece: global.PieceSpec,
+	directions: Array, 
+	position_to_piece: Dictionary	
+):
+	for direction in directions:
+		var check_coords: Vector2i = coordinates + direction
+		var collided = false
+		while global.on_board(check_coords) and not collided:
+			
+			if position_to_piece.has(check_coords):
+				collided = true
+				
+				if global.check_piece_rule(piece, position_to_piece[check_coords]):
+					return true
+			
+			check_coords += direction
+
+	return false

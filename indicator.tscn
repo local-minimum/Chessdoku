@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dacbl0vjac342"]
+
+[ext_resource type="Script" path="res://indicator.gd" id="1_8trnl"]
+[ext_resource type="Texture2D" uid="uid://b6ldg82fltua5" path="res://Images/check_bg.png" id="1_cb03t"]
+[ext_resource type="Texture2D" uid="uid://jkqqodabqtoe" path="res://Images/check.png" id="2_yvdt8"]
+
+[node name="Indicator" type="Node2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_8trnl")
+
+[node name="ValidFrame" type="Sprite2D" parent="."]
+texture = ExtResource("1_cb03t")
+
+[node name="Valid" type="Sprite2D" parent="."]
+texture = ExtResource("2_yvdt8")
