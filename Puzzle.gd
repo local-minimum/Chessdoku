@@ -5,7 +5,8 @@ class_name Puzzle
 var _boxes = Dictionary()
 var _row_rules: Array
 var _col_rules: Array
-var _spawners: Array
+var _white_spawners: Array
+var _black_spawners: Array
 
 func _config_boxes():
 	var boxes = find_children("Box *")
@@ -39,7 +40,8 @@ func _config_col_rules():
 	_col_rules = _gather_row_col_rules("ColRuleIndicator *")
 		
 func _ready():
-	_spawners = find_children("* Spawner")
+	_white_spawners = find_child("White Spawners").find_children("* Spawner")
+	_black_spawners = find_child("Black Spawners").find_children("* Spawner")
 	_config_boxes()
 	_config_row_rules()
 	_config_col_rules()
@@ -118,6 +120,16 @@ func get_piece(coords: Vector2i):
 	var internal_coords = Vector2i(coords.x - (box_coords.x - 1) * 4, coords.y - (box_coords.y - 1) * 4)
 	return box.get_piece(internal_coords)
 
+func get_tile(coords: Vector2i):
+	var box_coords = Vector2i((coords.x - 1) / 4 + 1, (coords.y - 1) / 4 + 1)
+	if _boxes == null or not _boxes.has(box_coords):
+		return null
+		
+	var box = _boxes[box_coords]
+	
+	var internal_coords = Vector2i(coords.x - (box_coords.x - 1) * 4, coords.y - (box_coords.y - 1) * 4)
+	return box.get_tile(internal_coords)
+
 var _numbers =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 func row_pieces(row: int):	
@@ -126,11 +138,8 @@ func row_pieces(row: int):
 func col_pieces(col: int):	
 	return _numbers.map(func piece_getter(n): return get_piece(Vector2i(col, n))).filter(func not_null(v): return v != null)
 
-
 func get_pieces():
 	var position_to_piece: Dictionary = {}
-	var color_to_positions: Dictionary = {}
-	var type_to_positions: Dictionary = {}
 	
 	for row in _numbers:
 		for col in _numbers:
@@ -139,18 +148,8 @@ func get_pieces():
 			if piece != null:
 				var spec = piece.spec()
 				position_to_piece[coords] = spec
-				
-				if type_to_positions.has(spec.type):
-					type_to_positions[spec.type].append(coords)
-				else:
-					type_to_positions[spec.type] = [coords]
-
-				if color_to_positions.has(spec.color):
-					color_to_positions[spec.color].append(coords)
-				else:
-					color_to_positions[spec.color] = [coords]
-					
-	return [position_to_piece, type_to_positions, color_to_positions]
+									
+	return position_to_piece
 	
 func board_to_string():
 	var line: String = ""
@@ -172,11 +171,8 @@ func board_to_string():
 @export var _queen_rules: QueenRules
 @export var _king_rules: KingRules
 
-func validate_capture_rules(coordinates: Vector2i):
-	var positions_types_colors = get_pieces()
-	var position_to_piece = positions_types_colors[0]
-	# var type_to_positions = positions_types_colors[1]
-	# var color_to_positions = positions_types_colors[2]
+func validate_capture_rules():
+	var position_to_piece = get_pieces()
 	
 	var p_rule = _pawn_rules.validate(position_to_piece)
 	var r_rule = _rook_rules.validate(position_to_piece)
@@ -186,7 +182,11 @@ func validate_capture_rules(coordinates: Vector2i):
 	var k_rule = _king_rules.validate(position_to_piece)
 	
 	return p_rule and r_rule and b_rule and kn_rule and q_rule and k_rule
-	
+
+# TODO:
+# 1. _validate should validate based on a position_to_pieces
+# 2. means box and row/col rules need restructuring
+# 3. this should just be validate()
 func validate(box: CDBox, coordinates: Vector2i):
 	var box_coords = _box_as_coordinates(box)
 	
@@ -198,10 +198,42 @@ func validate(box: CDBox, coordinates: Vector2i):
 	
 	var c_rules = _col_rules.all(func check_valid(rule: RowColRowIndicator): rule.valid())
 	var r_rules = _row_rules.all(func check_valid(rule: RowColRowIndicator): rule.valid())	
-	var p_rules = validate_capture_rules(Vector2i(col, row))
+	var p_rules = validate_capture_rules()
 	var b_rules = _boxes.values().all(func check_valid_box(box: CDBox): box.valid())
-	var s_rules = _spawners.all(func check_valid_spawners(spawner: PieceSpawner): spawner.valid())
-	
-	
+	var s_rules = (_white_spawners + _black_spawners).all(func check_valid_spawners(spawner: PieceSpawner): spawner.valid())
+		
 	if c_rules and r_rules and p_rules and b_rules and s_rules:
+		# TODO: Handle winning!?
 		print("Made it!")
+		
+	_set_hints()
+
+func _spawners_with_remaining(piece_color: global.PIECE_COLOR):
+	var pieces = []
+	var _spawners = _white_spawners if piece_color == global.PIECE_COLOR.WHITE else _black_spawners
+	for spawner in _spawners:
+		if spawner.remainging():
+			pieces.append(spawner.pieceType)
+
+	return pieces
+	
+func _set_hints():
+	var blacks = _spawners_with_remaining(global.PIECE_COLOR.BLACK)
+	var whites = _spawners_with_remaining(global.PIECE_COLOR.WHITE)
+	
+	for row in _numbers:
+		for col in _numbers:
+			var coords = Vector2i(col, row)
+			var tile: BoardTile = get_tile(coords)
+			
+			if not global.show_tile_hints:
+				tile.hint("", "")
+				continue
+
+			# TODO: Acutally check if occupant follows all rules
+			if tile.occupant != null:
+				tile.hint("", "")
+				continue
+
+			# TODO: Actually check how many of remaining pieces are allowed
+			tile.hint_number(whites.size(), blacks.size())

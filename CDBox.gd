@@ -88,7 +88,9 @@ func get_piece(coords: Vector2i):
 	if (tile == null):
 		return null
 	return tile.occupant	
-	
+
+func get_tile(coords: Vector2i):
+	return _tiles[coords]
 	
 func validate(tile: BoardTile):
 	_box_rule_indicator.validate()

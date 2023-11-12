@@ -70,3 +70,6 @@ func reclaim(piece: Node2D):
 
 func valid():
 	return _copies == 0
+	
+func remainging():
+	return _copies > 0

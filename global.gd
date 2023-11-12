@@ -67,6 +67,7 @@ var black_tile_hint_color = Color.BEIGE
 var show_box_rule_status = true
 var show_row_col_rule_status = true
 var show_piece_rule_status = true
+var show_tile_hints = true
 
 # Rules
 enum PIECE_RULE { THREATEN_SAME_TYPE, THREATEN_OPPONENT }
