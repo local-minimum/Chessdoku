@@ -171,9 +171,7 @@ func board_to_string():
 @export var _queen_rules: QueenRules
 @export var _king_rules: KingRules
 
-func validate_capture_rules():
-	var position_to_piece = get_pieces()
-	
+func validate_capture_rules(position_to_piece: Dictionary):
 	var p_rule = _pawn_rules.validate(position_to_piece)
 	var r_rule = _rook_rules.validate(position_to_piece)
 	var b_rule = _bishop_rules.validate(position_to_piece)
@@ -183,6 +181,13 @@ func validate_capture_rules():
 	
 	return p_rule and r_rule and b_rule and kn_rule and q_rule and k_rule
 
+# TODO: Include all rules here instead!
+# Also quick termination of checks!
+func _validate(position_to_piece):
+	return (
+		validate_capture_rules(position_to_piece)
+	)
+		
 # TODO:
 # 1. _validate should validate based on a position_to_pieces
 # 2. means box and row/col rules need restructuring
@@ -195,14 +200,16 @@ func validate(box: CDBox, coordinates: Vector2i):
 	
 	var col = (box_coords.x - 1) * 4 + coordinates.x
 	_col_rules[col - 1].validate()
-	
+
+	var position_to_piece = get_pieces()
+
 	var c_rules = _col_rules.all(func check_valid(rule: RowColRowIndicator): rule.valid())
 	var r_rules = _row_rules.all(func check_valid(rule: RowColRowIndicator): rule.valid())	
-	var p_rules = validate_capture_rules()
 	var b_rules = _boxes.values().all(func check_valid_box(box: CDBox): box.valid())
 	var s_rules = (_white_spawners + _black_spawners).all(func check_valid_spawners(spawner: PieceSpawner): spawner.valid())
-		
-	if c_rules and r_rules and p_rules and b_rules and s_rules:
+
+	var validated = _validate(position_to_piece)		
+	if c_rules and r_rules and validated and b_rules and s_rules:
 		# TODO: Handle winning!?
 		print("Made it!")
 		
