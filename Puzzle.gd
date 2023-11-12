@@ -78,11 +78,11 @@ func can_accept_king(piece: ChessPiece, box: CDBox, internal_coords: Vector2i):
 	if piece.piece_type() != global.PIECE.KING:
 		return true
 		
-	var position = _box_internal_coordinates_to_coordinates(box, internal_coords)
+	var _position = _box_internal_coordinates_to_coordinates(box, internal_coords)
 	
-	# print("---", position)
+	# print("---", _position)
 	for offset in KingRules.directions:
-		var check_position = position + offset
+		var check_position = _position + offset
 		
 		if not global.on_board(check_position):
 			# print("Off board", check_position)

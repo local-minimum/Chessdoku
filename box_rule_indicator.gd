@@ -9,9 +9,9 @@ var _box: CDBox
 func _ready():
 	_box = get_parent()
 	_sprites = find_children("Corner *")
-	var valid = global.show_box_rule_status and _validate_rule()
+	var is_valid = global.show_box_rule_status and _validate_rule()
 	for s in _sprites:
-		s.visible = valid
+		s.visible = is_valid
 	
 # Exactly one of each kind in box
 func _validate_rule():

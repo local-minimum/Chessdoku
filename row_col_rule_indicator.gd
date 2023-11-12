@@ -19,9 +19,9 @@ func _ready():
 	_check = find_child("Valid")
 	_frame.modulate = global.tile_tint_white_color
 	
-	var valid = global.show_row_col_rule_status and _validate_rule()	
+	var is_valid = global.show_row_col_rule_status and _validate_rule()	
 	_frame.visible = global.show_row_col_rule_status
-	_check.visible = valid
+	_check.visible = is_valid
 		
 func _get_pieces():
 	if direction == Direction.Row:
