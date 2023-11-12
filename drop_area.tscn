@@ -23,3 +23,46 @@ offset_top = -64.0
 offset_right = 64.0
 offset_bottom = 64.0
 color = Color(0.168627, 0.168627, 0.168627, 0.27451)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -63.0
+offset_top = 33.0
+offset_right = 63.0
+offset_bottom = 62.0
+
+[node name="TextLabel_Lower_Left" type="RichTextLabel" parent="Control"]
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 32.0
+offset_bottom = 30.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
+text = "6"
+fit_content = true
+autowrap_mode = 0
+
+[node name="TextLabel_Lower_Right" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_right = -3.0
+offset_bottom = 27.0
+grow_horizontal = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
+bbcode_enabled = true
+text = "[right]6[/right]"
+fit_content = true
+autowrap_mode = 0

@@ -60,6 +60,8 @@ var white_color = Color.ANTIQUE_WHITE
 var black_color = Color.DARK_SLATE_GRAY
 var tile_tint_white_color = Color(Color.BEIGE, 0.6)
 var tile_tint_black_color = Color(Color.DARK_VIOLET, 0.6)
+var white_tile_hint_color = Color.DARK_VIOLET
+var black_tile_hint_color = Color.BEIGE
 
 # Assist mode
 var show_box_rule_status = true

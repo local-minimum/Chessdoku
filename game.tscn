@@ -122,6 +122,7 @@ scale = Vector2(1.11, 1.07)
 
 [node name="Tile 1_1" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
+isBlackTile = false
 
 [node name="Tile 1_2" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 282)
@@ -129,6 +130,7 @@ isBlackTile = true
 
 [node name="Tile 1_3" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 415)
+isBlackTile = false
 
 [node name="Tile 1_4" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 549)
@@ -140,6 +142,7 @@ isBlackTile = true
 
 [node name="Tile 2_2" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 283)
+isBlackTile = false
 
 [node name="Tile 2_3" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 416)
@@ -147,9 +150,11 @@ isBlackTile = true
 
 [node name="Tile 2_4" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 550)
+isBlackTile = false
 
 [node name="Tile 3_1" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 148)
+isBlackTile = false
 
 [node name="Tile 3_2" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 282)
@@ -157,6 +162,7 @@ isBlackTile = true
 
 [node name="Tile 3_3" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 415)
+isBlackTile = false
 
 [node name="Tile 3_4" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 549)
@@ -168,6 +174,7 @@ isBlackTile = true
 
 [node name="Tile 4_2" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 282)
+isBlackTile = false
 
 [node name="Tile 4_3" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 415)
@@ -175,6 +182,7 @@ isBlackTile = true
 
 [node name="Tile 4_4" parent="Box 1" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 549)
+isBlackTile = false
 
 [node name="Box 2" type="Node2D" parent="."]
 position = Vector2(194, -26)
@@ -187,6 +195,7 @@ scale = Vector2(1.11, 1.07)
 
 [node name="Tile 1_1" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
+isBlackTile = false
 
 [node name="Tile 1_2" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 282)
@@ -194,6 +203,7 @@ isBlackTile = true
 
 [node name="Tile 1_3" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 415)
+isBlackTile = false
 
 [node name="Tile 1_4" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 549)
@@ -205,6 +215,7 @@ isBlackTile = true
 
 [node name="Tile 2_2" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 283)
+isBlackTile = false
 
 [node name="Tile 2_3" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 416)
@@ -212,9 +223,11 @@ isBlackTile = true
 
 [node name="Tile 2_4" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 550)
+isBlackTile = false
 
 [node name="Tile 3_1" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 148)
+isBlackTile = false
 
 [node name="Tile 3_2" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 282)
@@ -222,6 +235,7 @@ isBlackTile = true
 
 [node name="Tile 3_3" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 415)
+isBlackTile = false
 
 [node name="Tile 3_4" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 549)
@@ -233,6 +247,7 @@ isBlackTile = true
 
 [node name="Tile 4_2" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 282)
+isBlackTile = false
 
 [node name="Tile 4_3" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 415)
@@ -240,6 +255,7 @@ isBlackTile = true
 
 [node name="Tile 4_4" parent="Box 2" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 549)
+isBlackTile = false
 
 [node name="Box 3" type="Node2D" parent="."]
 position = Vector2(420, -26)
@@ -252,6 +268,7 @@ scale = Vector2(1.11, 1.07)
 
 [node name="Tile 1_1" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
+isBlackTile = false
 
 [node name="Tile 1_2" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 282)
@@ -259,6 +276,7 @@ isBlackTile = true
 
 [node name="Tile 1_3" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 415)
+isBlackTile = false
 
 [node name="Tile 1_4" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 549)
@@ -270,6 +288,7 @@ isBlackTile = true
 
 [node name="Tile 2_2" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 283)
+isBlackTile = false
 
 [node name="Tile 2_3" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 416)
@@ -277,9 +296,11 @@ isBlackTile = true
 
 [node name="Tile 2_4" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 550)
+isBlackTile = false
 
 [node name="Tile 3_1" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 148)
+isBlackTile = false
 
 [node name="Tile 3_2" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 282)
@@ -287,6 +308,7 @@ isBlackTile = true
 
 [node name="Tile 3_3" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 415)
+isBlackTile = false
 
 [node name="Tile 3_4" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 549)
@@ -298,6 +320,7 @@ isBlackTile = true
 
 [node name="Tile 4_2" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 282)
+isBlackTile = false
 
 [node name="Tile 4_3" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 415)
@@ -305,6 +328,7 @@ isBlackTile = true
 
 [node name="Tile 4_4" parent="Box 3" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 549)
+isBlackTile = false
 
 [node name="Box 4" type="Node2D" parent="."]
 position = Vector2(-32, 194)
@@ -317,6 +341,7 @@ scale = Vector2(1.11, 1.07)
 
 [node name="Tile 1_1" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
+isBlackTile = false
 
 [node name="Tile 1_2" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 282)
@@ -324,6 +349,7 @@ isBlackTile = true
 
 [node name="Tile 1_3" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 415)
+isBlackTile = false
 
 [node name="Tile 1_4" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 549)
@@ -335,6 +361,7 @@ isBlackTile = true
 
 [node name="Tile 2_2" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 283)
+isBlackTile = false
 
 [node name="Tile 2_3" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 416)
@@ -342,9 +369,11 @@ isBlackTile = true
 
 [node name="Tile 2_4" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 550)
+isBlackTile = false
 
 [node name="Tile 3_1" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 148)
+isBlackTile = false
 
 [node name="Tile 3_2" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 282)
@@ -352,6 +381,7 @@ isBlackTile = true
 
 [node name="Tile 3_3" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 415)
+isBlackTile = false
 
 [node name="Tile 3_4" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 549)
@@ -363,6 +393,7 @@ isBlackTile = true
 
 [node name="Tile 4_2" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 282)
+isBlackTile = false
 
 [node name="Tile 4_3" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 415)
@@ -370,6 +401,7 @@ isBlackTile = true
 
 [node name="Tile 4_4" parent="Box 4" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 549)
+isBlackTile = false
 
 [node name="Box 5" type="Node2D" parent="."]
 position = Vector2(194, 194)
@@ -382,6 +414,7 @@ scale = Vector2(1.11, 1.07)
 
 [node name="Tile 1_1" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
+isBlackTile = false
 
 [node name="Tile 1_2" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 282)
@@ -389,6 +422,7 @@ isBlackTile = true
 
 [node name="Tile 1_3" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 415)
+isBlackTile = false
 
 [node name="Tile 1_4" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 549)
@@ -400,6 +434,7 @@ isBlackTile = true
 
 [node name="Tile 2_2" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 283)
+isBlackTile = false
 
 [node name="Tile 2_3" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 416)
@@ -407,9 +442,11 @@ isBlackTile = true
 
 [node name="Tile 2_4" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 550)
+isBlackTile = false
 
 [node name="Tile 3_1" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 148)
+isBlackTile = false
 
 [node name="Tile 3_2" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 282)
@@ -417,6 +454,7 @@ isBlackTile = true
 
 [node name="Tile 3_3" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 415)
+isBlackTile = false
 
 [node name="Tile 3_4" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 549)
@@ -428,6 +466,7 @@ isBlackTile = true
 
 [node name="Tile 4_2" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 282)
+isBlackTile = false
 
 [node name="Tile 4_3" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 415)
@@ -435,6 +474,7 @@ isBlackTile = true
 
 [node name="Tile 4_4" parent="Box 5" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 549)
+isBlackTile = false
 
 [node name="Box 6" type="Node2D" parent="."]
 position = Vector2(420, 194)
@@ -447,6 +487,7 @@ scale = Vector2(1.11, 1.07)
 
 [node name="Tile 1_1" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
+isBlackTile = false
 
 [node name="Tile 1_2" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 282)
@@ -454,6 +495,7 @@ isBlackTile = true
 
 [node name="Tile 1_3" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 415)
+isBlackTile = false
 
 [node name="Tile 1_4" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 549)
@@ -465,6 +507,7 @@ isBlackTile = true
 
 [node name="Tile 2_2" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 283)
+isBlackTile = false
 
 [node name="Tile 2_3" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 416)
@@ -472,9 +515,11 @@ isBlackTile = true
 
 [node name="Tile 2_4" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 550)
+isBlackTile = false
 
 [node name="Tile 3_1" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 148)
+isBlackTile = false
 
 [node name="Tile 3_2" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 282)
@@ -482,6 +527,7 @@ isBlackTile = true
 
 [node name="Tile 3_3" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 415)
+isBlackTile = false
 
 [node name="Tile 3_4" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 549)
@@ -493,6 +539,7 @@ isBlackTile = true
 
 [node name="Tile 4_2" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 282)
+isBlackTile = false
 
 [node name="Tile 4_3" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 415)
@@ -500,6 +547,7 @@ isBlackTile = true
 
 [node name="Tile 4_4" parent="Box 6" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 549)
+isBlackTile = false
 
 [node name="Box 7" type="Node2D" parent="."]
 position = Vector2(-32, 412)
@@ -512,6 +560,7 @@ scale = Vector2(1.11, 1.07)
 
 [node name="Tile 1_1" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
+isBlackTile = false
 
 [node name="Tile 1_2" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 282)
@@ -519,6 +568,7 @@ isBlackTile = true
 
 [node name="Tile 1_3" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 415)
+isBlackTile = false
 
 [node name="Tile 1_4" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 549)
@@ -530,6 +580,7 @@ isBlackTile = true
 
 [node name="Tile 2_2" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 283)
+isBlackTile = false
 
 [node name="Tile 2_3" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 416)
@@ -537,9 +588,11 @@ isBlackTile = true
 
 [node name="Tile 2_4" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 550)
+isBlackTile = false
 
 [node name="Tile 3_1" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 148)
+isBlackTile = false
 
 [node name="Tile 3_2" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 282)
@@ -547,6 +600,7 @@ isBlackTile = true
 
 [node name="Tile 3_3" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 415)
+isBlackTile = false
 
 [node name="Tile 3_4" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 549)
@@ -558,6 +612,7 @@ isBlackTile = true
 
 [node name="Tile 4_2" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 282)
+isBlackTile = false
 
 [node name="Tile 4_3" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 415)
@@ -565,6 +620,7 @@ isBlackTile = true
 
 [node name="Tile 4_4" parent="Box 7" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 549)
+isBlackTile = false
 
 [node name="Box 8" type="Node2D" parent="."]
 position = Vector2(194, 412)
@@ -577,6 +633,7 @@ scale = Vector2(1.11, 1.07)
 
 [node name="Tile 1_1" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
+isBlackTile = false
 
 [node name="Tile 1_2" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 282)
@@ -584,6 +641,7 @@ isBlackTile = true
 
 [node name="Tile 1_3" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 415)
+isBlackTile = false
 
 [node name="Tile 1_4" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 549)
@@ -595,6 +653,7 @@ isBlackTile = true
 
 [node name="Tile 2_2" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 283)
+isBlackTile = false
 
 [node name="Tile 2_3" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 416)
@@ -602,9 +661,11 @@ isBlackTile = true
 
 [node name="Tile 2_4" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 550)
+isBlackTile = false
 
 [node name="Tile 3_1" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 148)
+isBlackTile = false
 
 [node name="Tile 3_2" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 282)
@@ -612,6 +673,7 @@ isBlackTile = true
 
 [node name="Tile 3_3" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 415)
+isBlackTile = false
 
 [node name="Tile 3_4" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 549)
@@ -623,6 +685,7 @@ isBlackTile = true
 
 [node name="Tile 4_2" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 282)
+isBlackTile = false
 
 [node name="Tile 4_3" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 415)
@@ -630,6 +693,7 @@ isBlackTile = true
 
 [node name="Tile 4_4" parent="Box 8" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 549)
+isBlackTile = false
 
 [node name="Box 9" type="Node2D" parent="."]
 position = Vector2(420, 412)
@@ -642,6 +706,7 @@ scale = Vector2(1.11, 1.07)
 
 [node name="Tile 1_1" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 148)
+isBlackTile = false
 
 [node name="Tile 1_2" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 282)
@@ -649,6 +714,7 @@ isBlackTile = true
 
 [node name="Tile 1_3" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 415)
+isBlackTile = false
 
 [node name="Tile 1_4" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(168, 549)
@@ -660,6 +726,7 @@ isBlackTile = true
 
 [node name="Tile 2_2" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 283)
+isBlackTile = false
 
 [node name="Tile 2_3" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 416)
@@ -667,9 +734,11 @@ isBlackTile = true
 
 [node name="Tile 2_4" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(307, 550)
+isBlackTile = false
 
 [node name="Tile 3_1" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 148)
+isBlackTile = false
 
 [node name="Tile 3_2" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 282)
@@ -677,6 +746,7 @@ isBlackTile = true
 
 [node name="Tile 3_3" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 415)
+isBlackTile = false
 
 [node name="Tile 3_4" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(446, 549)
@@ -688,6 +758,7 @@ isBlackTile = true
 
 [node name="Tile 4_2" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 282)
+isBlackTile = false
 
 [node name="Tile 4_3" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 415)
@@ -695,6 +766,7 @@ isBlackTile = true
 
 [node name="Tile 4_4" parent="Box 9" instance=ExtResource("1_l4ssu")]
 position = Vector2(586, 549)
+isBlackTile = false
 
 [node name="RowColRuleIndicators" type="Node2D" parent="."]
 
